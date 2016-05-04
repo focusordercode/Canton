@@ -1,0 +1,14 @@
+[ 2016-05-03T11:12:14+08:00 ] ::1 /focusor/admin.php/focusor/admin.php/Home/Index/index.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+ERR: 无法加载模块:Focusor
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' E:\www\focusor\ThinkPHP\Library\Think\Log.class.php 第 72 行.
+NOTIC: [8] Use of undefined constant ture - assumed 'ture' E:\www\focusor\ThinkPHP\Library\Think\Log.class.php 第 76 行.
+
+[ 2016-05-03T11:12:24+08:00 ] ::1 /focusor/admin.php/focusor/admin.php/Home/Index/index.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+ERR: 无法加载模块:Focusor
+
