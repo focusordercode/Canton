@@ -17,6 +17,7 @@ class UserInfo{
     //根据id查询用户信息
 	static public function SelID($userid){
         $sql=$UserInfoTable->where("userid = '%d'",array($userid))->find();
+        /*
         $arr['name']=$sql['name'];
         $arr['portrait']=$sql['portrait'];
         $arr['sex']=$sql['sex'];
@@ -24,8 +25,8 @@ class UserInfo{
         $arr['shengxiao']=$sql['shengxiao'];
         $arr['constellation']=$sql['constellation'];
         $arr['address']=$sql['address'];
-        $arr['zipcode']=$sql['zipcode'];
-        return($arr);
+        $arr['zipcode']=$sql['zipcode'];*/
+        return($sql);
 	}
     
     //根据id更新用户信息

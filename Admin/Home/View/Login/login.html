@@ -1,18 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zn-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
-<title>登录</title>
-
+	<meta charset="UTF-8">
+	<title>后台登录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link href="__PUBLIC__/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__PUBLIC__/dist/css/flat-ui.css" rel="stylesheet">
+	<style>
+		html,body {
+			background-color: #1abc9c;
+			/*background-color: #1887cd;*/
+		}
+		.login-panel {
+			margin-top: 200px;
+		}
+	</style>
 </head>
-
 <body>
-<form action="__URL__/checklogin" method="post">
-<p>用户名：<input type="text" name="username" id="username"  /></p>
-<p>密码：<input type="password" name="password" id="password"  /></p>
-<input type="submit" value="注册" />
-</form>
-</body>
+	<div class="container login-panel">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+            <form action="__URL__/checklogin" method="post">
+				<div class="login-form">
+					<div class="form-group">
+						<input type="text" class="form-control login-field" value="" placeholder="用户名" id="login-name" name="username" />
+						<label class="login-field-icon fui-user" for="login-name"></label>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control login-field" value="" placeholder="密码" id="login-pass" name="password" />
+						<label class="login-field-icon fui-lock" for="login-pass"></label>
+					</div>
+					<!-- <a class="btn btn-primary btn-lg btn-block" href="#">登录</a> -->
+					<input type="submit" class="btn btn-primary btn-lg btn-block" value="登录" />
+				</div>
+                </form>
+			</div>
 
+		</div>
+	</div>
+	<script src="__PUBLIC__/dist/js/vendor/jquery.min.js"></script>
+    <script src="__PUBLIC__/dist/js/flat-ui.min.js"></script>
+    <script>
+    	$('input[placeholder="用户名"]').focus();
+    </script>
+</body>
 </html>

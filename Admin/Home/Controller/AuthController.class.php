@@ -8,9 +8,15 @@ class AuthController extends Controller{
     //判断用户权限
 	public function checkUser(){
 	     $id=$_SESSION['userid'];
-         $groupTable=M("group g");
-         $field="g.groupname,r.rolename,r.idcodes,";
-         $sql=$groupTable->join('left join foc_role r on g.groupid=r.groupid')->where("userid = '%d'",array($id))->find();
+         $groupTable=M("role r");
+         //$field="";
+         $sql=$groupTable->join('left join foc_user_role ur on r.roleid=ur.roleid')->where("userid = '%d'",array($id))->find();
+         if($sql['groupid']==1){
+         	return 1;
+         }else{
+         	return -1;
+         }
+/*
          switch ($sql['groupname']) {
          	case '管理员组':
          		     $test=true;
@@ -20,9 +26,9 @@ class AuthController extends Controller{
          		    $test=flase;
          		break;
          }
-         return $test;   
+         return $test;   */
 	}
-
+/*
     //判断管理员组的角色权限
 	private function adminRoot($rolename,$idcodes){
 		switch ($rolename) {
@@ -55,5 +61,5 @@ class AuthController extends Controller{
         }
         return $title;
 	}
-	
+	*/
 }

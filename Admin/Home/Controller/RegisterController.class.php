@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Think\User;
 
 class RegisterController extends Controller{
 	//用户注册
@@ -9,19 +10,9 @@ class RegisterController extends Controller{
 		$password=I('post.password');
 		$email=I('post.email');
 		$mobile=I('post.mobile');
-		$time=date("Y-m-d H:i:s",time());
-		$random= substr(uniqid(rand()), -6);
-		$userTable=M("user");
 
-		$data['username']=$username;
-		$data['password']=md5(md5($password).$random);
-		$data['email']=$email;
-		$data['mobile']=$mobile;
-		$data['regdate']=$time;
-		$data['random']=$random;
-
-		$sql=$userTable->data($data)->add();
-		if($sql){
+		$res=\Think\User::AddUser($username,$password,$email,$mobile);
+		if($res){
 			$ip=get_client_ip();
             \Think\Log::write('ip地址 '.$ip.'注册了用户名为'.$username.'的用户！','info');
 			$this->success("注册成功！",U('Login/login'));
