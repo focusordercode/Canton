@@ -47,7 +47,7 @@ class User{
 	}
 
 	//查询所有用户
-	static public function SelAll(){
+	static public function SelAllUser(){
 		$UserTable=M('user');
 		$field='userid,username,email,emailstatus,mobile';
         $sql=$UserTable->field($field)->select();

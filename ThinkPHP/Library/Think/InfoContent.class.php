@@ -8,6 +8,7 @@ class InfoContent{
 	static private $name;
 	static private $date;
 	static private $columnid;
+	static private $grade;
 	static private $arr=array();
     
     //查询所有标题
@@ -36,7 +37,7 @@ class InfoContent{
 	} 
 
 	//添加产品内容
-	static public function AddContent($title,$content,$name,$columnid){
+	static public function AddContent($title,$content,$name,$columnid,$grade='1'){
 		$contentTable=M('content');
 		$data['title']=$title;
 		$data['content']=$content;
@@ -66,10 +67,11 @@ class InfoContent{
 	}
 
 	//修改产品内容
-	static public function UpdaContent($contentid,$title,$content){
+	static public function UpdaContent($contentid,$title,$content,$grade){
 		$contentTable=M('content');
 		$data['title']=$title;
 		$data['content']=$content;
+		$data['grade']=$grade;
 		$sql=$contentTable->where("contentid = %d",array($contentid))->data($data)->save();
 		if(flase!==$sql){
         	return  1;
@@ -88,4 +90,6 @@ class InfoContent{
         	return -1;
         }
 	}
+
+
 }

@@ -4,13 +4,13 @@ use Home\Controller\AuthController;
 use Think\User;
 class IndexController extends AuthController {
     public function index(){
-
-        $a=$this->checkUser();
+        $id=$_SESSION['userid'];
+        $a=$this->checkGroup($id);
         if(isset($_SESSION['username'])){
             //跳转到首页
             //$this->display();
             
-            if ($a==1) {
+            if ($a!==flase) {
 
                 
                 /*$arr=\Think\User::SelAll();

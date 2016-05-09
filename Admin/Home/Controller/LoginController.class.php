@@ -24,3 +24,5 @@ class LoginController extends Controller {
             session_destroy();
         }
 }
+
+
