@@ -1,6 +1,9 @@
 <?php
 namespace Think;
-//产品内容类
+/**
+* 产品内容类
+*/
+
 class InfoContent{
 	static private $contentid;
 	static private $title;
@@ -8,6 +11,7 @@ class InfoContent{
 	static private $name;
 	static private $date;
 	static private $columnid;
+	static private $grade;
 	static private $arr=array();
     
     //查询所有标题
@@ -15,6 +19,14 @@ class InfoContent{
 		$contentTable=M('content');
 		$field='contentid, title';
 		$sql=$contentTable->field($field)->select();
+		return($sql);
+	}
+
+	//根据栏目查询标题
+	static public function SelIDTitle($columnid){
+		$contentTable=M('content');
+		$field='contentid,title';
+		$sql=$contentTable->$file($file)->where("columnid=%d",array($columnid))->select();
 		return($sql);
 	}
 
@@ -28,7 +40,7 @@ class InfoContent{
 	} 
 
 	//添加产品内容
-	static public function AddContent($title,$content,$name,$columnid){
+	static public function AddContent($title,$content,$name,$columnid,$grade){
 		$contentTable=M('content');
 		$data['title']=$title;
 		$data['content']=$content;
@@ -36,6 +48,7 @@ class InfoContent{
 		$time=date("Y-m-d H:i:s");
 		$data['date']=$time;
 		$data['columnid']=$columnid;
+		$data['grade']=$grade;
 		$sql=$contentTable->data($data)->add();
 		if($sql){
         	return  1;
@@ -46,7 +59,46 @@ class InfoContent{
 	}
 
 	//修改产品标题
-	static public function UpdaTitle(){
-		
+	static public function UpdaTitle($contentid,$title){
+		$contentTable=M('content');
+		$data['title']=$title;
+		$sql=$contentTable->where("contentid = %d",array($contentid))->data($data)->save();
+		if(flase!==$sql){
+        	return  1;
+        }else{
+        	return  -1;
+        }		
+	}
+
+	//修改产品内容
+	static public function UpdaContent($contentid,$title,$content,$grade){
+		$contentTable=M('content');
+		$data['title']=$title;
+		$data['content']=$content;
+		$data['grade']=$grade;
+		$sql=$contentTable->where("contentid = %d",array($contentid))->data($data)->save();
+		if(flase!==$sql){
+        	return  1;
+        }else{
+        	return  -1;
+        }	
+	}
+
+	//删除产品
+	static public function DelContent($contentid){
+		$contentTable=M('content');
+		$sql=$contentTable->where("contentid = '%d'",array($contentid))->delete();
+        if($sql){
+        	return 1;
+        }else{
+        	return -1;
+        }
+	}
+
+	//查询产品内容
+	static public function SelContent($contentid){
+        $contentTable=M('content');
+        $sql=$contentTable->where("contentid='%d'",array($contentid))->find();
+        return($sql);
 	}
 }

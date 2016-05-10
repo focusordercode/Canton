@@ -1,6 +1,8 @@
 <?php
 namespace Think;
-//用户类
+/**
+* 用户类
+*/
 class User{
 	static private $userid;
 	static private $username;
@@ -9,7 +11,9 @@ class User{
 	static private $emailstatus;
 	static private $mobile;
 	static private $random;
+	static private $field;
 	static private $arr=array();
+	static private $data=array();
 
 
     //根据id查询用户
@@ -39,16 +43,44 @@ class User{
 	static public function SelVague($username){
 		$UserTable=M('user');
 		$array['username']=array('like',"%{$username}%");
-        $sql=$UserTable->where($array)->select();
+		$field='userid,username,email,emailstatus,mobile';
+        $sql=$UserTable->field($field)->where($array)->select();
         return($sql);
 	}
 
 	//查询所有用户
-	static public function SelAll($username){
+	static public function SelAllUser(){
 		$UserTable=M('user');
-        $sql=$UserTable->select();
+		$field='userid,username,email,emailstatus,mobile';
+        $sql=$UserTable->field($field)->select();
         return($sql);
 	}
+
+	//验证密码
+	static public function  ValidationPassword($username,$password){
+		$UserTable=M('user');
+        $sql=$UserTable->where("username='%s'",array($username))->find();
+        $random=$sql['random'];
+        if($sql['password']==md5(md5($password).$random)){
+        	return $sql['userid'];
+        }else{
+        	return  -1;
+        }
+	}
+
+	//更新登录时间
+	static public function updaLisdate($userid){
+		$UserTable=M('user');
+		$time=date("Y-m-d H:i:s");
+        $data['lisdate']=$time;
+        $sql=$UserTable->where("userid=%d",array($userid))->data($data)->save();
+        if($sql!=='flase'){
+        	return  1;
+        }else{
+        	return  -1;
+        }
+	}
+
     
     //根据id修改密码
 	static public function UpdaPassword($userid,$password){
@@ -56,31 +88,20 @@ class User{
 		$data['random']= substr(uniqid(rand()), -6);
 		$data['password']=md5(md5($password).$random);
         $sql=$UserTable->where("userid = '%d'",array($userid))->data($data)->save();
-        if(flase!==$sql){
+        if($sql!=='flase'){
         	return  1;
         }else{
         	return  -1;
         }
 	}
 
-	//根据id修改邮箱
-	static public function UpdaEmail($userid,$email){
+	//根据id修改邮箱和手机号
+	static public function UpdaUser($userid,$email,$mobile){
 		$UserTable=M('user');
 		$data['email']= $email;
-        $sql=$UserTable->where("userid = '%d'",array($userid))->data($data)->save();
-        if(flase!==$sql){
-        	return  1;
-        }else{
-        	return  -1;
-        }
-	}
-
-	//根据id修改手机号
-	static public function UpdaMobile($userid,$mobile){
-		$UserTable=M('user');
 		$data['mobile']= $mobile;
         $sql=$UserTable->where("userid = '%d'",array($userid))->data($data)->save();
-        if(flase!==$sql){
+        if($sql!=='flase'){
         	return  1;
         }else{
         	return  -1;
@@ -88,11 +109,11 @@ class User{
 	}
 
     //添加用户
-	static public function AddUser($username,$password,$email,$emailstatus='0',$mobile){
+	static public function AddUser($username,$password,$email,$mobile,$emailstatus='0'){
 		$UserTable=M('user');
 		$data['username']=$username;
-		$data['random']= substr(uniqid(rand()), -6);
-		$data['password']=md5(md5($password).$random);
+		$data['random']= substr(uniqid(rand()), -6);  //随机生成盐值
+		$data['password']=md5(md5($password).$data['random']);
 		$data['email']=$email;
 		$data['emailstatus']=$emailstatus;
 		$data['mobile']=$mobile;
