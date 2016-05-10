@@ -1,6 +1,9 @@
 <?php
 namespace Think;
-//产品内容类
+/**
+* 产品内容类
+*/
+
 class InfoContent{
 	static private $contentid;
 	static private $title;
@@ -37,7 +40,7 @@ class InfoContent{
 	} 
 
 	//添加产品内容
-	static public function AddContent($title,$content,$name,$columnid,$grade='1'){
+	static public function AddContent($title,$content,$name,$columnid,$grade){
 		$contentTable=M('content');
 		$data['title']=$title;
 		$data['content']=$content;
@@ -45,6 +48,7 @@ class InfoContent{
 		$time=date("Y-m-d H:i:s");
 		$data['date']=$time;
 		$data['columnid']=$columnid;
+		$data['grade']=$grade;
 		$sql=$contentTable->data($data)->add();
 		if($sql){
         	return  1;
@@ -83,7 +87,7 @@ class InfoContent{
 	//删除产品
 	static public function DelContent($contentid){
 		$contentTable=M('content');
-		$sql=$contentTable->where("userid = '%d'",array($contentid))->delete();
+		$sql=$contentTable->where("contentid = '%d'",array($contentid))->delete();
         if($sql){
         	return 1;
         }else{
@@ -91,5 +95,10 @@ class InfoContent{
         }
 	}
 
-
+	//查询产品内容
+	static public function SelContent($contentid){
+        $contentTable=M('content');
+        $sql=$contentTable->where("contentid='%d'",array($contentid))->find();
+        return($sql);
+	}
 }

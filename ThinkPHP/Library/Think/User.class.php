@@ -1,6 +1,8 @@
 <?php
 namespace Think;
-//用户类
+/**
+* 用户类
+*/
 class User{
 	static private $userid;
 	static private $username;

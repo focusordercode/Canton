@@ -46,12 +46,32 @@ class ContentController extends Controller{
 		$this->display();
 	}
 
+	//查询产品内容
+	public function ContentSel(){
+		$contentid=I('post.contentid');
+		$res=\Think\InfoContent::SelContent($contentid);
+		$grade=$res['grade'];
+		if($grade==1){
+			$this->assign('res',$res);
+		    $this->display();
+		}elseif($grade==2){
+			$id=$_SESSION['userid']
+		    if($this->checkUserRoot($id)){
+		    	$this->assign('res',$res);
+		        $this->display();
+		    }else{
+		    	$this->error("你没有权限查看该内容！");
+		    }
+		}
+	}
+
 	//修改产品内容
 	public function contentUpda(){
 		$contentid=I('post.contentid');
 		$title=I('post.title');
 		$content=I('post.content');
-		$test=\Think\InfoContent::UpdaContent($contentid,$title,$content);
+		$grade=I('post.grade');
+		$test=\Think\InfoContent::UpdaContent($contentid,$title,$content,$grade);
 		if($test==1){
         	$this->success("修改成功！");
         }else{

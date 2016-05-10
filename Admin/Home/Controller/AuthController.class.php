@@ -20,14 +20,15 @@ class AuthController extends Controller{
     //判断该用户的权限
 	private function checkUserRoot($userid,$idcode){
         $idcodes=$this->GetUserRoot($userid);
-        if($idcodes==9999){
+        if($idcodes=='9999'){
             return true;
         }
         for($i=0;$i<count($idcodes);$i++){
-            if($idcode=$idcodes[$i]){
-                 return true;
+            if($idcode==$idcodes[$i]){
+                 return true; 
             }
-        }     
+        }
+        return flase;     
 	}
     
     //获取该用户的权限
