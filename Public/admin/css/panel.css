@@ -1,0 +1,201 @@
+/*整站样式*/
+html,body,dl,dd,img,form,div,ul,ol,li,h1,h2,h3,h4,h5,h6,p{margin:0;padding:0; border:0;}
+body{font-size: 12px;font-family: '微软雅黑', Arial;}
+input{padding: 0;font-family: '微软雅黑', Arial;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+ul,ol,li{ list-style-type:none;}
+img{border:0;vertical-align:middle}
+select,input,select{vertical-align:middle;outline: none;}
+table{border-collapse:collapse;border-spacing:0}
+iframe{border:none;}
+a:link{color:#666666;text-decoration:none;}
+a:visited{color:#666666;text-decoration:none;}
+a:hover{color:#0093ff;text-decoration:none;}
+a:active{color:#0093ff;text-decoration:none;}
+.h{display:none;visibility:visible;}
+.wrap{border: 0;padding:0;width:1100px;margin:0 auto;*zoom:1;}
+.wrap:after{clear: both;content:"";display: table;}
+.c{clear:both;font-size:0;line-height:0;height:0;visibility:visible;}
+.fix{*zoom:1;}
+.fix:after{clear: both;content:"";display: table;}
+.fl{float: left;}
+.fr{float: right;}
+.pors{position: relative;}
+
+/* 页面开始 */
+body,html {
+	height: 100%;
+	/*padding-bottom: 2px;*/
+}
+.main-left {
+	width: 200px;
+	height: 100%;
+	background-color: #303233;
+}
+.panel-logo {
+	display: block;
+	width: 199px;
+	height: 65px;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.main-left ul li {
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+	background-color: #303233;
+	border-bottom: 1px solid #393b3c;
+	-webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.main-left ul li i {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #000;
+}
+.main-left ul li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.main-left ul li img {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	padding-left: 30px;
+}
+.main-left ul li span {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle;
+	padding-left: 25px;
+	font-size: 14px;
+	color: #fff;
+}
+.main-left ul li:hover {
+	background-color: #1887cd;
+}
+.main-left ul li:hover .drop-list {
+	display: block;
+}
+.main-left ul .on {
+	background-color: #1887cd;
+}
+.main-left ul li .drop-list {
+	position: absolute;
+	top: -1px;
+	left: 200px;
+	z-index: 6666;
+	display: none;
+	width: 200px;
+	background-color: #303233;
+	text-align: center;
+}
+.main-left ul li .drop-listing {
+	line-height: 50px;
+	color: #fff;
+	font-size: 14px;
+}
+.main-left ul li .drop-listing:hover {
+	background-color: #1887cd;
+	-webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.mainr {
+	overflow: hidden;
+	/*margin-right: 15px;*/
+	min-width: 800px;
+	height: 100%;
+}
+.mainr-top {
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}
+.mainr-top-nav {
+	float: left;
+	margin-left: 10px;
+}
+.mainr-top-nav ul li {
+	float: left;
+	margin-right: 5px;
+	font-size: 14px;
+	line-height: 50px;
+}
+.mainr-top-nav ul li a {
+	color: #000;
+}
+.mainr-top-nav ul li a:hover {
+	color: #1887cd;
+}
+.mainr-top-nav ul .on a {
+	color: #1887cd; 
+}
+.mainr-top-info {
+	float: right;
+}
+.mainr-top-info .mainr-top-info1 {
+	position: relative;
+	float: left;
+	font-size: 14px;
+	line-height: 50px;
+	margin-right: 30px;
+	cursor: pointer;
+}
+.mainr-top-info .mainr-top-info1 span {
+	border-radius: 5px;
+	padding: 5px;
+}
+.mainr-top-info .mainr-top-info1:hover span {
+	background-color: #e6e6e6;
+}
+.caret {
+	display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.mainr-top-list {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	z-index: 5555;
+	width: 160px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	display: none;
+}
+.mainr-top-list > a {
+	display: block;
+	line-height: 32px;
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+}
+.right-content {
+    background: #fff;
+    height: 100%;
+    min-height: 100%;
+    /*overflow: auto;*/
+}
+.content {
+    position: relative;
+    min-height: 100%;
+    margin: 30px 5px 0 20px;
+}
+#page_content {
+    position: absolute;
+    z-index: 5555;
+    width: 100%;
+    height: 100%;
+}

@@ -35,5 +35,10 @@ class IndexController extends AuthController {
         
     }
 
+    // 欢迎页
+    public function welcome(){
+        $this->display();
+    }
+
     
 }
