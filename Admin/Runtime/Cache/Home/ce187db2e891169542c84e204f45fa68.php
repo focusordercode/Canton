@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>后台登录</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<link href="/Canton/Public/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/Canton/Public/dist/css/flat-ui.css" rel="stylesheet">
+	<link href="/focusor/Public/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/focusor/Public/dist/css/flat-ui.css" rel="stylesheet">
 	<style>
 		html,body {
 			background-color: #1abc9c;
@@ -20,7 +20,7 @@
 	<div class="container login-panel">
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
-            <form action="/Canton/admin.php/Home/Login/checklogin" method="post">
+            <form action="/focusor/admin.php/Home/Login/checklogin" method="post">
 				<div class="login-form">
 					<div class="form-group">
 						<input type="text" class="form-control login-field" value="" placeholder="用户名" id="login-name" name="username" />
@@ -38,8 +38,8 @@
 
 		</div>
 	</div>
-	<script src="/Canton/Public/dist/js/vendor/jquery.min.js"></script>
-    <script src="/Canton/Public/dist/js/flat-ui.min.js"></script>
+	<script src="/focusor/Public/dist/js/vendor/jquery.min.js"></script>
+    <script src="/focusor/Public/dist/js/flat-ui.min.js"></script>
     <script>
     	$('input[placeholder="用户名"]').focus();
     </script>

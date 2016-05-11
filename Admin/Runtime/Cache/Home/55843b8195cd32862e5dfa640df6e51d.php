@@ -5,68 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>后台</title>
-    <link rel="stylesheet" href="/Canton/Public/admin/css/panel.css">
-    <script src="/Canton/Public/admin/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/focusor/Public/admin/css/panel.css">
+    <script src="/focusor/Public/admin/js/jquery.min.js"></script>
 </head>
 <body>
     <!-- 左边导航栏开始 -->
     <div class="main-left fl fix">
         <!-- 网站logo -->
         <a href="<?php echo U('index');?>" class="panel-logo">
-            <img src="/Canton/Public/admin/images/logo.png" width="199" height="65" alt="">
+            <img src="/focusor/Public/admin/images/logo.png" width="199" height="65" alt="">
         </a>
         <ul>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-1.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-1.png" alt="">
                     <span>网站首页</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-2.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-2.png" alt="">
                     <span>发布</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-3.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-3.png" alt="">
                     <span>管理</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-4.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-4.png" alt="">
                     <span>营销</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-5.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-5.png" alt="">
                     <span>外观</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-6.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-6.png" alt="">
                     <span>我的应用</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-7.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-7.png" alt="">
                     <span>应用商店</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <img src="/Canton/Public/admin/images/panel-8.png" alt="">
+                <img src="/focusor/Public/admin/images/panel-8.png" alt="">
                 <span>用户</span>
                 <i></i>
                 <div class="drop-list">
@@ -76,25 +76,26 @@
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-9.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-9.png" alt="">
                     <span>安全</span>
                     <i></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="/Canton/Public/admin/images/panel-10.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-10.png" alt="">
                     <span>设置</span>
                     <i></i>
-                    <!-- <div class="drop-list">
-                        <a class="drop-listing">系统配置</a>
-                    </div> -->
+                    <div class="drop-list">
+                        <a href="#" class="drop-listing">用户管理</a>
+                        <a href="#" class="drop-listing">权限管理</a>
+                    </div>
                 </a>
             </li>
             <li>
                 <!-- 地址切换函数 -->
                 <a onclick="addSrc('sysconfig')" id="sysconfig" name="<?php echo U('Sysconfig/sysconfig');?>" href="javascript:;">
-                    <img src="/Canton/Public/admin/images/panel-10.png" alt="">
+                    <img src="/focusor/Public/admin/images/panel-10.png" alt="">
                     <span>系统配置</span>
                     <i></i>
                 </a>
