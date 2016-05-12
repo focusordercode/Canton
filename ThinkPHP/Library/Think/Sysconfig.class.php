@@ -49,18 +49,18 @@ class Sysconfig {
 
 	//修改配置项  参数如上
     //typeid以及 info描述信息暂时不可修改
-	static public function editsysconfig($sysname,$value,$status,$typeid,$info){
+	static public function editsysconfig($sysname,$status,$typeid,$value,$info){
         $sys = M("sysconfig");
 
-        $data["value"] = $value; //必需
+        if(isset($value)){
+            $data["value"] = $value;
+        }
         $data["status"] = $status;
-        
+        $data["typeid"] = $typeid;        
         if(isset($info)){
         	$data["info"] = $info;
         }
-        if(isset($typeid)){
-            $data["typeid"] = $typeid;
-        }
+
         $add = $sys->where("sysname='".$sysname."'")->save($data);
         if($add){
             return 1;

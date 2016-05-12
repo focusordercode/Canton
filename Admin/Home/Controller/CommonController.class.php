@@ -7,7 +7,13 @@ class CommonController extends Controller {
 	public function _initialize(){
         if(!isset($_SESSION['username'])){
         	$this->redirect("Login/login");
-        }        
+        }
+        $s = M("sysconfig")->where("status=1")->select();
+        $site = array();
+        foreach($s as $k => $v){
+            $site[$v['sysname']] = $v['value'];
+        }
+        $this->assign("site" ,$site);
 	}
 
 }

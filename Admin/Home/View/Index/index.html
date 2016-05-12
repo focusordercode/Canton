@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>后台</title>
     <link rel="stylesheet" href="__PUBLIC__/admin/css/panel.css">
+    <link rel="shortcut icon" type="image/x-icon" href="__PUBLIC__/index/images/{$site['icon']}"/>
     <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
 </head>
 <body>
@@ -17,49 +18,49 @@
         </a>
         <ul>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-1.png" alt="">
                     <span>网站首页</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-2.png" alt="">
                     <span>发布</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-3.png" alt="">
                     <span>管理</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-4.png" alt="">
                     <span>营销</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-5.png" alt="">
                     <span>外观</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-6.png" alt="">
                     <span>我的应用</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-7.png" alt="">
                     <span>应用商店</span>
                     <i></i>
@@ -70,34 +71,25 @@
                 <span>用户</span>
                 <i></i>
                 <div class="drop-list">
-                    <a href="#" class="drop-listing">用户管理</a>
-                    <a href="#" class="drop-listing">权限管理</a>
+                    <a href="javascript:;" class="drop-listing">用户管理</a>
+                    <a href="javascript:;" class="drop-listing">权限管理</a>
                 </div>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-9.png" alt="">
                     <span>安全</span>
                     <i></i>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:;">
                     <img src="__PUBLIC__/admin/images/panel-10.png" alt="">
                     <span>设置</span>
                     <i></i>
                     <div class="drop-list">
-                        <a href="#" class="drop-listing">用户管理</a>
-                        <a href="#" class="drop-listing">权限管理</a>
+                        <a href="javascript:;" class="drop-listing" onclick="addSrc('sysconfig')" id="sysconfig" name="{:U('Sysconfig/sysconfig')}">系统配置</a>
                     </div>
-                </a>
-            </li>
-            <li>
-                <!-- 地址切换函数 -->
-                <a onclick="addSrc('sysconfig')" id="sysconfig" name="{:U('Sysconfig/sysconfig')}" href="javascript:;">
-                    <img src="__PUBLIC__/admin/images/panel-10.png" alt="">
-                    <span>系统配置</span>
-                    <i></i>
                 </a>
             </li>
         </ul>
@@ -158,6 +150,7 @@
         });
         function addSrc(id){
             var src = $("#"+id).attr("name");
+            //$(this).parents("li").addClass("on");
             $("#menuFrame").attr("src" ,src);
         }
     </script>

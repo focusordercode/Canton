@@ -5,6 +5,15 @@ use Think\Auth;
 header("Content-type: text/html; charset=utf-8");
 //权限控制器
 class AuthController extends Controller{
+    public function _initialize(){
+    
+        $s = M("sysconfig")->where("status=1")->select();
+        $site = array();
+        foreach($s as $k => $v){
+            $site[$v['sysname']] = $v['value'];
+        }
+        $this->assign("site" ,$site);
+    }
     //判断用户是否可以登录后台
 	public function checkGroup($id){
         $UserTable=M('user_role ur');
