@@ -1,0 +1,8 @@
+Admin/Runtime/*
+Index/Runtime/*
+
+# Logs and databases # 
+###################### 
+*.log 
+*.sql 
+*.sqlite 
