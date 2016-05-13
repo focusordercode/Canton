@@ -1,0 +1,26 @@
+.row-gap {
+	margin-bottom: 40px;
+}
+.web-setting-form {
+	margin-bottom: 20px;
+}
+.web-setting-label {
+	width: 100px;
+	padding-right: 5px;
+	text-align: right;
+}
+.websetting-btn {
+	margin-left: 100px;
+}
+.img-block {
+	display: block;
+	margin: 10px 0;
+}
+.img-logo {
+	width: 200px;
+	height: 100px;
+}
+.img-qrcode {
+	width: 200px;
+	height: 200px;
+}
