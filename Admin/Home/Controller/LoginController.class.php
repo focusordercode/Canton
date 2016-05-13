@@ -15,14 +15,15 @@ class LoginController extends Controller {
             \Think\Log::write($username.'登录了！','info');
             $this->redirect('Index/index');
         }else{
-            $this->error("密码错误！",U('Login/login'));  
+            $this->error("密码错误！",U('Login/login'));
         }
     }
     //退出登录
     public function login_out(){
-            session_unset();
-            session_destroy();
-        }
+        session_unset();
+        session_destroy();
+        $this->redirect("login");
+    }
 }
 
 
