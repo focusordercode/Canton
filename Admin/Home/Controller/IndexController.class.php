@@ -1,7 +1,7 @@
 <?php 
 namespace Home\Controller;
 use Home\Controller\AuthController;
-use Think\User;
+
 class IndexController extends AuthController {
     public function index(){
         $id=$_SESSION['userid'];
@@ -20,7 +20,7 @@ class IndexController extends AuthController {
                      }
                     echo "<br />";
                 }*/
-                    $this->display();
+                $this->display();
                 
             }else{
             	$this->error("你没有权限！",U('Login/login'));

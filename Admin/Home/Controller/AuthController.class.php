@@ -6,7 +6,9 @@ header("Content-type: text/html; charset=utf-8");
 //权限控制器
 class AuthController extends Controller{
     public function _initialize(){
-    
+        if(!isset($_SESSION['username'])){
+        	$this->redirect("Login/login");
+        }
         $s = M("sysconfig")->where("status=1")->select();
         $site = array();
         foreach($s as $k => $v){
