@@ -1,7 +1,7 @@
 <?php 
 namespace Home\Controller;
 use Home\Controller\AuthController;
-use Think\User;
+
 class IndexController extends AuthController {
     public function index(){
         $id=$_SESSION['userid'];
@@ -18,10 +18,13 @@ class IndexController extends AuthController {
                      }
                     echo "<br />";
                 }*/
+
                 $t='admin';
                 $Model=D('UserInfoView');
                 $te=$Model->where('userinfo.userid=1')->select();
                 print_r($te);
+               
+
                 
             }else{
             	$this->error("你没有权限！",U('Login/login'));

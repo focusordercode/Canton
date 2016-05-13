@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class SysconfigController extends CommonController {
+class SysconfigController extends AuthController {
 
     public function sysconfig(){
         $where1 = " and typeid=1";
