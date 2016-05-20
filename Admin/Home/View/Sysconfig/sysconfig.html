@@ -19,6 +19,10 @@
         <div class="container">
             <div class="row row-gap">
                 <h1 class="text-primary">基本设置</h1>
+                <div class="form-inline web-setting-form">
+                    <label class="web-setting-label" for="websetting-input">属性名称</label>
+                    <input type="text" class="form-control" class="websetting-input" value="属性值" readonly="readonly"/>
+                </div>
                 <form action="{:U('edit')}" method="post">
                     <foreach name="list1" item="vo" key="k">
                         <div class="form-inline web-setting-form">

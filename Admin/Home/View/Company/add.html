@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>企业信息</title>
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/panel.css">
+    <link rel="shortcut icon" type="image/x-icon" href="__PUBLIC__/index/images/{$site['icon']}"/>
+    <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+    <!--UEedit-->
+
+
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--UEedit-->
+    <script type="text/javascript">
+        var ue = UE.getEditor('introduce');
+    </script>
+    <style>
+        .ue {width:1000px;height:600px;border:1px solid #ccc;border-radius:10px;position:absolute;top:20px;left:50%;transform:translateX(-50%);padding:20px;overflow:auto;}
+        .pp {line-height:40px;}
+        .pp input[type=text] {height:27px;width:300px;}
+    </style>
+</head>
+<body>
+<div class="ue">
+    <form action="{:U('Company/doadd')}" method="post">
+        <p class="pp">全称：<input type="text" name="fullname" value="{$company['fullname']}"/></p>
+        <p class="pp">简称：<input type="text" name="simplename" value="{$company['simplename']}"/></p>
+        <p class="pp">行业：<input type="text" name="industry" value="{$company['industry']}"/></p>
+        <p class="pp">备注：<input type="text" name="note" value="{$company['note']}"/></p>
+        <p class="pp">状态：
+            <if condition="$company['status'] eq 1">
+                <label><input type="radio" name="status" value="1" checked/> 正常</label>
+                <label><input type="radio" name="status" value="0"/> 关闭</label>
+            <else/>
+                <label><input type="radio" name="status" value="1"/> 正常</label>
+                <label><input type="radio" name="status" value="0" checked/> 关闭</label>
+            </if>
+        </p>
+        <p><script id="introduce" name="introduce" type="text/plain" style="width:1000px;height:200px;">{$company['introduce']}</script></p>
+        <input type="submit" value="提交"/>
+    </form>
+</div>
+</body>
+</html>

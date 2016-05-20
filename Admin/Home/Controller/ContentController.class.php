@@ -3,11 +3,20 @@ namespace  Home\Controller;
 use Think\Controller;
 
 class ContentController extends Controller{
+
+	//内容首页
+	public function index(){
+		$list=\Think\Column::SelColumn();
+		$this->assign("list" , $list);
+
+        $this->display();
+	}
 	//添加产品内容
 	public function contentAdd(){
 		$title=I('post.title');
 		$content=I('post.content');
-		$name=I('post.name');
+		$name = session('username');//登陆管理员的账号
+		//$name=I('post.name');
 		$date=date('Y-m-d H:i:s',time());
 		$columnid=I('post.columnid');
 		$grade=I('post.grade');
@@ -55,7 +64,7 @@ class ContentController extends Controller{
 			$this->assign('res',$res);
 		    $this->display();
 		}elseif($grade==2){
-			$id=$_SESSION['userid']
+			$id=$_SESSION['userid'];
 		    if($this->checkUserRoot($id)){
 		    	$this->assign('res',$res);
 		        $this->display();

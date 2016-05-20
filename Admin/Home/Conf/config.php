@@ -23,6 +23,8 @@ return array(
     'IMAGE_FILE_PATH' => './Public/index/images/',//图片上传路径
     'ATHER_FILE_PATH' => './Public/index/Upload/', //其他文件上传路径
 
+    'BACKUP_PATH' => './Data/', //数据库备份目录
+    'DOMAIN' => '', //网站域名
     //默认成功失败跳转模板
     // 'TMPL_ACTION_ERROR' => 'Public:error',
     // 'TMPL_ACTION_SUCCESS' => 'Public:success',

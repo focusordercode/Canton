@@ -25,10 +25,15 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="javascript:;" class="drop-listing" onclick="addSrc('publish')" id="publish" name="{:U('Content/index')}">
                     <img src="__PUBLIC__/admin/images/panel-2.png" alt="">
                     <span>发布</span>
                     <i></i>
+                    <div class="drop-list">
+                        <a href="javascript:;" class="drop-listing" onclick="addSrc('company')" id="company" name="{:U('Company/index')}">企业介绍</a>
+                        <a href="javascript:;" class="drop-listing" onclick="addSrc('org')" id="org" name="{:U('Org/index')}">企业结构</a>
+                        <a href="javascript:;" class="drop-listing" onclick="addSrc('bak')" id="bak" name="{:U('Bak/index')}">数据备份</a>
+                    </div>
                 </a>
             </li>
             <li>

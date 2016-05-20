@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="demo">
+        <h2 class="title"><a>数据库备份下载还原</a></h2>
+
+        <table class="table" border="1" cellSpacing="0" cellPadding="0" width="80%" align="center">
+            <thead>
+                <tr align="left">
+                    <th colspan="5"><a class="btn" type="button" onClick="location.href = '__URL__/index/Action/backup'">备份添加</a></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>序号</th>
+                <th>文件名</th>
+                <th>备份时间</th>
+                <th>文件大小</th>
+                <th>操作</th>
+            </tr>
+            <notempty  name="lists">
+
+                <foreach name="lists" key="key" item="row">
+                    <if condition="$key gt 1">
+                        <tr>
+                            <td>{$key-1}</td>
+                            <td style="text-align: left"><a href="{:U('Bak/index',array('Action'=>'download','file'=>$row))}">{$row}</a></td>
+                            <td>{$row|getfiletime=$datadir}</td>
+                            <td>{$row|getfilesize=$datadir}</td>
+                            <td>
+                                <a href="{:U('Bak/index',array('Action'=>'download','file'=>$row))}">下载</a>
+                                <a onclick="return confirm('确定将数据库还原到当前备份吗？')"href="{:U('Bak/index',array('Action'=>'RL','File'=>$row))}">还原</a>
+                                <a onclick="return confirm('确定删除该备份文件吗？')"href="{:U('Bak/index',array('Action'=>'Del','File'=>$row))}">删除</a>
+                            </td>
+                        </tr>
+                    </if>
+                </foreach>
+                <else/>
+                <tr>
+                    <td colspan="7">没有找到相关数据。</td>
+                </tr>
+
+            </notempty>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

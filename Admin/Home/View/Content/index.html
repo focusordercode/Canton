@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>发布</title>
+</head>
+<body>
+    <form action="{:U('Content/contentAdd')}" method="post">
+        <p>
+            <select name="columnid">
+                <option value="">请选择</option>
+                <foreach name="list" item="vo">
+                    <option value="{$vo.columnid}">{$vo.columname}</option>
+                </foreach>
+            </select>
+        </p>
+        <p><input type="text" name="title"/></p>
+        <p><textarea name="content"></textarea></p>
+        <p>
+            <select name="grade">
+                <option value="1">用户可看</option>
+                <option value="2">VIP可看</option>
+            </select>
+        </p>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>
